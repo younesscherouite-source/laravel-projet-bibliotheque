@@ -1,0 +1,180 @@
+/* ==========================================================
+   app.css - Style pour Dashboard et Profile (pages connectees)
+   ========================================================== */
+
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #4338ca;
+    --danger: #dc2626;
+    --danger-dark: #b91c1c;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --bg: #f3f4f6;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body.app-body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    color-scheme: light;
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* ---------- Barre de navigation ---------- */
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .04);
+}
+.navbar-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 8px;
+}
+.navbar-brand {
+    margin-right: 14px;
+    color: var(--text);
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+.nav-link {
+    padding: 8px 12px;
+    color: #4b5563;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 8px;
+}
+.nav-link:hover,
+.nav-link.active { background: #eef2ff; color: var(--primary); }
+
+.navbar-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.navbar-right form { margin: 0; }
+.navbar-user { color: var(--muted); font-size: .9rem; margin-right: 6px; }
+
+/* Bouton qui ressemble a un lien (Logout) */
+button.nav-link {
+    background: none;
+    border: none;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+}
+button.nav-link:hover { background: #fef2f2; color: var(--danger); }
+
+/* ---------- En-tete de page ---------- */
+.page-header { background: #fff; border-bottom: 1px solid var(--border); }
+.page-header .container { padding-top: 22px; padding-bottom: 22px; }
+.page-title { margin: 0; font-size: 1.5rem; font-weight: 700; }
+
+main.container { padding-top: 32px; padding-bottom: 48px; }
+
+/* ---------- Cartes ---------- */
+.card {
+    margin-bottom: 24px;
+    padding: 28px 32px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
+}
+.card h2 { margin: 0 0 4px; font-size: 1.15rem; font-weight: 600; }
+.card .muted { margin: 0 0 18px; color: var(--muted); font-size: .92rem; }
+.card form { max-width: 520px; }
+
+/* ---------- Formulaires ---------- */
+.form-group { margin-top: 16px; }
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 11px 13px;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+}
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, .18);
+}
+.form-error { margin: 6px 0 0; color: var(--danger); font-size: .85rem; }
+.form-status { margin: 8px 0 0; color: #15803d; font-size: .9rem; }
+.form-actions { display: flex; align-items: center; gap: 14px; margin-top: 22px; }
+
+/* ---------- Boutons ---------- */
+.btn {
+    display: inline-block;
+    padding: 10px 22px;
+    background: var(--primary);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background .2s;
+}
+.btn:hover { background: var(--primary-dark); color: #fff; }
+.btn-danger { background: var(--danger); }
+.btn-danger:hover { background: var(--danger-dark); }
+
+.link-button {
+    padding: 0;
+    background: none;
+    color: var(--primary);
+    font: inherit;
+    text-decoration: underline;
+    border: none;
+    cursor: pointer;
+}
+
+/* ---------- Supprimer le compte ---------- */
+details.delete-box summary {
+    display: inline-block;
+    padding: 10px 22px;
+    background: var(--danger);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    list-style: none;
+}
+details.delete-box summary::-webkit-details-marker { display: none; }
+details.delete-box summary:hover { background: var(--danger-dark); }
+details.delete-box[open] summary { margin-bottom: 18px; }
+details.delete-box form {
+    padding: 18px 20px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+}
+
+@media (max-width: 640px) {
+    .card { padding: 20px 18px; }
+    .navbar-right { margin-left: 0; width: 100%; }
+}

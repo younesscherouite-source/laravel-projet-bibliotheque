@@ -1,0 +1,19 @@
+# ------------------------------------------------------------
+# Hebergement (InfinityFree) : le web root est /htdocs.
+# Toutes les requetes sont envoyees vers le dossier public/.
+# ------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# Bloquer l'acces a .env et aux fichiers caches
+<Files .*>
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</Files>
